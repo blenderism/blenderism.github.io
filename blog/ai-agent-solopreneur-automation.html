@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Solopreneur's AI Stack: 6 Automations That Replace a $5K/Month Team</title>
+  <meta name="description" content="How to use AI agents to handle market research, outreach, SEO, social media, security, and AI visibility — the same work that costs $5K/month to outsource. Real tools, real output, real numbers.">
+  <link rel="canonical" href="https://blenderism.github.io/blog/ai-agent-solopreneur-automation.html">
+  <meta property="og:title" content="The Solopreneur's AI Stack: 6 Automations That Replace a $5K/Month Team">
+  <meta property="og:description" content="Market research, outreach, SEO, social media, security auditing, AI visibility — all automated. Here's the stack.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://blenderism.github.io/blog/ai-agent-solopreneur-automation.html">
+  <meta property="og:image" content="https://blenderism.github.io/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@4cryptoclearly">
+  <meta name="twitter:image" content="https://blenderism.github.io/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --bg: #0a0a0b; --surface: #141416; --border: #2a2a2e; --text: #e4e4e7; --text-muted: #a1a1aa; --accent: #3b82f6; --green: #22c55e; --red: #ef4444; --orange: #f59e0b; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    nav { padding: 20px 0; border-bottom: 1px solid var(--border); }
+    nav .container { display: flex; justify-content: space-between; align-items: center; max-width: 720px; }
+    .logo { font-weight: 800; font-size: 1.2rem; text-decoration: none; color: var(--text); }
+    .logo span { color: var(--accent); }
+    nav a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+    nav a:hover { color: var(--text); }
+    article { padding: 60px 0; }
+    article h1 { font-size: 2.2rem; font-weight: 800; line-height: 1.2; letter-spacing: -1px; margin-bottom: 16px; }
+    .meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 40px; }
+    article h2 { font-size: 1.4rem; font-weight: 700; margin: 40px 0 16px; }
+    article h3 { font-size: 1.15rem; font-weight: 600; margin: 28px 0 12px; }
+    article p { color: var(--text-muted); margin-bottom: 16px; }
+    article strong { color: var(--text); }
+    article a { color: var(--accent); text-decoration: none; }
+    article a:hover { text-decoration: underline; }
+    article ul, article ol { color: var(--text-muted); margin: 0 0 16px 24px; }
+    article li { margin-bottom: 6px; }
+    .callout { background: var(--surface); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 24px 0; }
+    .callout.green { border-left-color: var(--green); }
+    .callout.warn { border-left-color: var(--orange); }
+    .callout p { margin: 0; }
+    code { background: var(--surface); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; color: var(--orange); }
+    pre { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; overflow-x: auto; margin: 16px 0; }
+    pre code { background: none; padding: 0; color: var(--text-muted); }
+    .terminal { background: #0d0d0e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 16px 0; font-family: 'Courier New', monospace; font-size: 0.82rem; line-height: 1.5; color: var(--text-muted); overflow-x: auto; white-space: pre-wrap; }
+    .terminal .cmd { color: var(--green); }
+    .terminal .ok { color: var(--green); }
+    .terminal .warn { color: var(--orange); }
+    .terminal .crit { color: var(--red); }
+    .terminal .heading { color: var(--text); font-weight: 600; }
+    .terminal .accent { color: var(--accent); }
+    .terminal .label { font-family: 'Inter', sans-serif; font-size: 0.7rem; color: var(--text-muted); opacity: 0.6; display: block; margin-bottom: 8px; }
+    .cost-table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+    .cost-table th, .cost-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    .cost-table th { color: var(--text); font-weight: 600; }
+    .cost-table td { color: var(--text-muted); }
+    .stack-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 16px 0; }
+    .stack-card h3 { margin: 0 0 8px; font-size: 1.1rem; }
+    .stack-card .replaces { font-size: 0.85rem; color: var(--orange); margin-bottom: 12px; }
+    .cta-box { background: var(--surface); border: 2px solid var(--accent); border-radius: 12px; padding: 32px; text-align: center; margin: 40px 0; }
+    .cta-box h3 { margin: 0 0 8px; }
+    .cta-box p { margin-bottom: 16px; }
+    .cta-box a.btn { display: inline-block; background: var(--accent); color: #fff; padding: 12px 24px; border-radius: 8px; font-weight: 600; text-decoration: none; margin: 0 8px; }
+    .cta-box a.btn.green { background: var(--green); color: #000; }
+    .cta-box a.btn:hover { transform: translateY(-1px); }
+    footer { padding: 40px 0; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="/" class="logo">Zero<span>to</span>Operator</a>
+    <a href="/blog/">← All posts</a>
+  </div>
+</nav>
+
+<article>
+  <div class="container">
+    <h1>The Solopreneur's AI Stack: 6 Automations That Replace a $5K/Month Team</h1>
+    <div class="meta">March 22, 2026 · 11 min read · By <a href="https://x.com/4cryptoclearly">@4cryptoclearly</a></div>
+
+    <p>A solopreneur doing market research, cold outreach, SEO, social media management, security auditing, and AI visibility optimization would need to hire 3-4 specialists. At freelance rates, that's $4,000-6,000/month.</p>
+
+    <p><strong>Or you can build an AI agent stack that handles all of it for $59 once plus ~$30-50/month in API costs.</strong></p>
+
+    <p>This isn't hypothetical. We built this stack, used it to launch a business, and we're documenting the entire process. Here's every tool in the stack, what it replaces, and what it actually costs.</p>
+
+    <div class="callout">
+      <p><strong>TL;DR:</strong> 6 AI-powered automations covering market research, outreach, SEO, X/social media, security, and AI visibility. Total cost: $59 one-time + $30-50/month in AI tokens. Replaces ~$5K/month in freelancer costs. Each tool runs as an OpenClaw skill with automation scripts. Real output from each tool shown below.</p>
+    </div>
+
+    <h2>The Cost Comparison</h2>
+
+    <table class="cost-table">
+      <tr><th>Function</th><th>Freelancer Cost</th><th>AI Stack Cost</th></tr>
+      <tr><td>Market Research Analyst</td><td>$1,000-1,500/mo</td><td>~$5/mo in tokens</td></tr>
+      <tr><td>Cold Outreach Specialist</td><td>$800-1,200/mo</td><td>~$8/mo in tokens</td></tr>
+      <tr><td>SEO Auditor</td><td>$500-1,000/mo</td><td>~$3/mo in tokens</td></tr>
+      <tr><td>Social Media Manager</td><td>$800-1,500/mo</td><td>~$10/mo in tokens + $100 X API</td></tr>
+      <tr><td>Security Auditor</td><td>$1,000-2,000/mo</td><td>~$2/mo in tokens</td></tr>
+      <tr><td>AI/GEO Specialist</td><td>$500-1,000/mo</td><td>~$2/mo in tokens</td></tr>
+      <tr><th>Total</th><th>$4,600-8,200/mo</th><th>~$30-50/mo + $59 once</th></tr>
+    </table>
+
+    <div class="callout warn">
+      <p><strong>Honest caveat:</strong> An AI stack doesn't replace human judgment. You still make the strategic decisions, approve outreach, and choose which opportunities to pursue. What it replaces is the execution work — the research, the drafting, the scanning, the monitoring. That's where 80% of the time (and cost) goes.</p>
+    </div>
+
+    <h2>The 6-Tool Stack</h2>
+
+    <div class="stack-card">
+      <h3>1. 📊 Market Research — Know Your Market Before You Build</h3>
+      <div class="replaces">Replaces: Junior market research analyst ($1,000-1,500/mo)</div>
+      <p>Before writing a single line of code or sending a single email, you need to know: how big is this market, who are the competitors, what do customers actually want, and what should you charge.</p>
+      <p>Most solopreneurs skip this and build something nobody wants. A structured research process prevents that.</p>
+    </div>
+
+    <div class="terminal">
+<span class="label">TAM calculator + SWOT generator in action:</span>
+<span class="cmd">$ tam-calculator.sh "OpenClaw skills marketplace"</span>
+<span class="ok">✅ Market sizing template created</span>
+→ TAM/SAM/SOM calculation worksheets
+→ Data source recommendations for validation
+→ "A smaller defensible number beats a huge vague one."
+
+<span class="cmd">$ swot-generator.sh "AI agent cold outreach"</span>
+<span class="ok">✅ SWOT analysis created</span>
+→ Strengths, Weaknesses, Opportunities, Threats
+→ SO/WO/ST/WT strategic action matrix
+→ "Be honest — especially about weaknesses and threats."
+
+<span class="cmd">$ competitor-scraper.sh https://competitor.com</span>
+<span class="ok">✅ Competitor profile extracted</span>
+→ Positioning, tech stack, pricing signals, content strategy</div>
+
+    <div class="stack-card">
+      <h3>2. 📧 Cold Outreach — Send Emails That Get Replies</h3>
+      <div class="replaces">Replaces: SDR / outreach specialist ($800-1,200/mo)</div>
+      <p>Your AI agent becomes your outreach machine. Not a chatbot that writes generic emails — a structured system with <a href="/blog/ai-agent-cold-outreach.html">Hormozi's framework</a>, ICP targeting, and pipeline tracking.</p>
+    </div>
+
+    <div class="terminal">
+<span class="label">ICP builder + pipeline tracker:</span>
+<span class="cmd">$ icp-builder.sh "solopreneur with AI agent"</span>
+<span class="ok">✅ ICP template created</span>
+→ Demographics, psychographics, buying triggers, messaging angle
+
+<span class="cmd">$ follow-up-tracker.sh status</span>
+<span class="heading">=== Pipeline Status ===</span>
+Total: 24 | Active: 18 | Replied: 4 | Meetings: 2
+Reply rate: 16.7%
+<span class="warn">⚠️ Overdue: Jane Chen (Touch 3, 2 days ago)</span></div>
+
+    <div class="stack-card">
+      <h3>3. 🔍 SEO Audit — Find What's Hurting Your Rankings</h3>
+      <div class="replaces">Replaces: SEO consultant ($500-1,000/mo)</div>
+      <p>Run a 70-point audit on any site, extract and grade meta tags automatically, test page speed with 3-run averaging. Not "here's what SEO is" — actual scripts that check your site.</p>
+    </div>
+
+    <div class="terminal">
+<span class="label">Real audit of our own site:</span>
+<span class="cmd">$ meta-extractor.sh https://blenderism.github.io</span>
+  Title: 44 chars <span class="ok">✅</span> | Description: 131 chars <span class="ok">✅</span>
+  Canonical: <span class="ok">✅</span> | JSON-LD: <span class="ok">✅</span>
+<span class="ok">Score: 8/8 — Excellent</span>
+
+<span class="cmd">$ page-speed-check.sh https://blenderism.github.io</span>
+  TTFB: <span class="ok">19ms</span> | Size: <span class="ok">30KB</span>
+  3-run: 0.018s, 0.019s, 0.020s <span class="ok">✅ Blazing fast</span></div>
+
+    <div class="stack-card">
+      <h3>4. 📡 X Monitor — Grow Your Presence on Autopilot</h3>
+      <div class="replaces">Replaces: Social media manager ($800-1,500/mo)</div>
+      <p>Instead of scrolling X for 2 hours hoping to find relevant posts, one API call monitors all your target accounts. Filtered by follower tier. Draft replies sent to your phone for approval.</p>
+    </div>
+
+    <div class="terminal">
+<span class="label">Single API call, 8 accounts monitored:</span>
+<span class="cmd">$ x-search.sh</span>
+<span class="accent">📡 Found 8 new posts from watched accounts:</span>
+
+<span class="ok">✅ [HIGH]</span> @svpino (447,768 followers)
+  "Your AI Agent can now have a job on its own!"
+  286 likes, 26 RTs, 48 replies
+
+<span class="ok">✅ [HIGH]</span> @TheRundownAI (213,092 followers)
+  "Anthropic continues to come for the OpenClaw..."
+  65 likes, 12 RTs, 9 replies
+
+<span class="heading">→ Peak hours only. 14 checks/day. 80% less API cost.</span></div>
+
+    <div class="stack-card">
+      <h3>5. 🔒 Skill Audit — Don't Install Malicious Tools</h3>
+      <div class="replaces">Replaces: Security review ($1,000-2,000/mo for continuous auditing)</div>
+      <p>Every skill you install gets full system access. <a href="/blog/openclaw-skills-security-audit.html">We found critical issues in 3 of the top 10 most downloaded skills.</a> The scanner catches them in 10 seconds.</p>
+    </div>
+
+    <div class="terminal">
+<span class="label">Scan of a skill with 9,370 downloads:</span>
+<span class="cmd">$ security-scan.sh self-improvement/</span>
+  Credentials &amp; Secrets: <span class="warn">[WARNING] 3 patterns found</span>
+  Prompt Injection:       <span class="crit">[CRITICAL] 2 patterns found</span>
+  Network &amp; Exfiltration: <span class="ok">[OK]</span>
+  Destructive Commands:   <span class="ok">[OK]</span>
+  Obfuscation:            <span class="ok">[OK]</span>
+
+Critical: <span class="crit">1</span> | Warnings: <span class="warn">3</span> | Passed: <span class="ok">6</span>
+<span class="crit">⛔ CRITICAL — do not install without manual review</span></div>
+
+    <div class="stack-card">
+      <h3>6. 🤖 AI Visibility — Get Cited by LLMs</h3>
+      <div class="replaces">Replaces: GEO specialist ($500-1,000/mo — most companies don't even know this role exists yet)</div>
+      <p>The newest tool in the stack. <a href="/blog/geo-generative-engine-optimization.html">GEO is the new SEO</a> — optimizing for ChatGPT, Perplexity, and Gemini citations. 12-signal audit, llms.txt generator, content planning.</p>
+    </div>
+
+    <div class="terminal">
+<span class="label">GEO audit of our site:</span>
+<span class="cmd">$ geo-audit.sh https://blenderism.github.io</span>
+  llms.txt:     <span class="ok">✅ 3/3</span> | JSON-LD: <span class="ok">✅ 3/3</span>
+  FAQ content:  <span class="ok">✅ 2/2</span> | Blog:    <span class="ok">✅ 2/2</span>
+  Sitemap:      <span class="ok">✅ 1/1</span> | RSS:     <span class="crit">❌ 0/1</span>
+
+<span class="accent">Score: 17/19 (89%) — Grade: A-</span></div>
+
+    <h2>The Real Monthly Cost</h2>
+
+    <p>Here's what running this stack actually costs us:</p>
+
+    <table class="cost-table">
+      <tr><th>Item</th><th>Monthly Cost</th></tr>
+      <tr><td>VPS hosting (Hostinger)</td><td>$10</td></tr>
+      <tr><td>Claude API tokens (Opus for strategy, Sonnet for crons, Haiku for scripts)</td><td>$30-50</td></tr>
+      <tr><td>X API access</td><td>$100 (optional)</td></tr>
+      <tr><td>Domain (optional)</td><td>$1</td></tr>
+      <tr><td>GitHub Pages hosting</td><td>Free</td></tr>
+      <tr><td>Stripe payment processing</td><td>2.9% per sale</td></tr>
+      <tr><th>Total</th><th>$41-61/mo (without X API: $41)</th></tr>
+    </table>
+
+    <p>Plus $59 one-time for the skill bundle. That's it.</p>
+
+    <div class="callout green">
+      <p><strong>The model tiering trick that saves 80%:</strong> Don't run everything on the expensive model. Use Opus ($75/M output) for strategy sessions. Sonnet ($15/M) for cron jobs and drafting. Haiku ($4/M) for running scripts. Same agent, different brains for different tasks.</p>
+    </div>
+
+    <h2>What This Stack Can't Do</h2>
+
+    <p>Being honest about limitations:</p>
+
+    <ul>
+      <li><strong>Close deals for you.</strong> The outreach system generates leads. You still need to show up on calls and deliver value.</li>
+      <li><strong>Replace domain expertise.</strong> The market research tool structures your research — but you need to know your industry to fill in the right data.</li>
+      <li><strong>Guarantee results.</strong> Great outreach to the wrong audience gets zero replies. Great SEO on thin content doesn't rank. The tools accelerate good strategy, not replace it.</li>
+      <li><strong>Handle enterprise-scale operations.</strong> This is a solopreneur stack. If you're sending 10,000 emails/day or managing 50 client SEO audits, you need dedicated platforms.</li>
+    </ul>
+
+    <h2>FAQ</h2>
+
+    <h3>Do I need to know how to code?</h3>
+    <p>No. The scripts are bash — you run them by typing a command. Your AI agent handles everything else. If you can type <code>bash script.sh "your input"</code>, you can use every tool in this stack.</p>
+
+    <h3>What AI model do I need?</h3>
+    <p>Any model that runs in OpenClaw. Claude (Opus/Sonnet/Haiku), GPT-4, Gemini — the skills are model-agnostic. We recommend Claude for quality, but the scripts work with anything.</p>
+
+    <h3>How long to set up?</h3>
+    <p>The bundle installs in 2 minutes (extract a tar.gz). Configuring your specific settings (ICP, watchlist, audit targets) takes another 30 minutes. You're operational in under an hour.</p>
+
+    <h3>Can I use individual tools without the bundle?</h3>
+    <p>Yes. Each skill works independently. The bundle is just all 6 together at a discount ($59 vs $114 individual).</p>
+
+    <h3>What if I already have some of these tools?</h3>
+    <p>Each skill is independent. Buy only what you need. But if you're starting from scratch, the bundle saves $55 and gives you a complete stack from day one.</p>
+
+    <div class="cta-box">
+      <h3>Get the complete solopreneur stack</h3>
+      <p>6 premium skills. 15 automation scripts. Market research, outreach, SEO, social media, security, and AI visibility. Deploy in under an hour.</p>
+      <a href="/#bundle" class="btn green">Get the Bundle — $59</a>
+      <a href="/#skills" class="btn">Browse Individual Skills</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="container">
+    <p>Built by <a href="https://x.com/4cryptoclearly">@4cryptoclearly</a> · <a href="/">Zero to Operator</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
