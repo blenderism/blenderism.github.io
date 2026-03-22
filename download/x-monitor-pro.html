@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download X Monitor Pro — Zero to Operator</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --bg: #0a0a0b; --surface: #141416; --border: #2a2a2e; --text: #e4e4e7; --text-muted: #a1a1aa; --accent: #3b82f6; --green: #22c55e; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 640px; margin: 0 auto; padding: 0 24px; }
+    nav { padding: 20px 0; border-bottom: 1px solid var(--border); }
+    nav .container { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-weight: 800; font-size: 1.2rem; text-decoration: none; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .content { padding: 60px 0; text-align: center; }
+    .check { font-size: 3rem; margin-bottom: 16px; }
+    h1 { font-size: 1.8rem; font-weight: 800; margin-bottom: 8px; }
+    .subtitle { color: var(--text-muted); margin-bottom: 32px; }
+    .download-btn { display: inline-block; background: var(--green); color: #000; padding: 16px 40px; border-radius: 8px; font-weight: 700; font-size: 1.1rem; text-decoration: none; transition: background 0.2s, transform 0.1s; }
+    .download-btn:hover { background: #16a34a; transform: translateY(-1px); }
+    .install { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 28px; margin: 40px 0; text-align: left; }
+    .install h2 { font-size: 1.15rem; font-weight: 700; margin-bottom: 16px; }
+    .install ol { margin-left: 20px; color: var(--text-muted); }
+    .install li { margin-bottom: 10px; }
+    .install code { background: var(--bg); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; color: #f59e0b; }
+    pre { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 14px; overflow-x: auto; margin: 10px 0; text-align: left; }
+    pre code { background: none; padding: 0; color: var(--text-muted); }
+    .help { color: var(--text-muted); font-size: 0.9rem; margin-top: 32px; }
+    .help a { color: var(--accent); text-decoration: none; }
+    footer { padding: 40px 0; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+<nav><div class="container"><a href="/" class="logo">Zero<span>to</span>Operator</a></div></nav>
+<div class="content">
+  <div class="container">
+    <div class="check">✅</div>
+    <h1>Thank you! Here's your download.</h1>
+    <p class="subtitle">X Monitor Pro — Automated X/Twitter monitoring and engagement</p>
+    <a href="/x-monitor-pro.tar.gz" class="download-btn" download>Download X Monitor Pro</a>
+    <div class="install">
+      <h2>Installation (2 minutes)</h2>
+      <ol>
+        <li>Extract the archive:<pre><code>tar xzf x-monitor-pro.tar.gz -C ~/.openclaw/workspace/skills/</code></pre></li>
+        <li>Add your X API keys to <code>~/.openclaw/secrets/x-api.json</code></li>
+        <li>Edit the watchlist: <code>skills/x-monitor-pro/references/watchlist.json</code></li>
+        <li>Test the search:<pre><code>bash ~/.openclaw/workspace/skills/x-monitor-pro/scripts/x-search.sh</code></pre></li>
+        <li>Set up a cron job for automated monitoring (see SKILL.md for details)</li>
+      </ol>
+    </div>
+    <p class="help">Need help? Reach out on <a href="https://x.com/4cryptoclearly">X @4cryptoclearly</a></p>
+  </div>
+</div>
+<footer><div class="container"><p><a href="/">Zero to Operator</a> · Built by <a href="https://x.com/4cryptoclearly">@4cryptoclearly</a></p></div></footer>
+</body>
+</html>
