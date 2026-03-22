@@ -283,6 +283,46 @@
     }
     .skill-price a:hover { background: #16a34a; transform: translateY(-1px); }
 
+    /* Demo sections */
+    .demo-toggle {
+      display: inline-block;
+      margin-top: 12px;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .demo-toggle:hover { border-color: var(--accent); color: var(--text); }
+    .demo-content {
+      display: none;
+      margin-top: 16px;
+      background: #0d0d0e;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.78rem;
+      line-height: 1.5;
+      color: var(--text-muted);
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .demo-content.show { display: block; }
+    .demo-content .cmd { color: var(--green); }
+    .demo-content .warn { color: var(--orange); }
+    .demo-content .crit { color: var(--red); }
+    .demo-content .ok { color: var(--green); }
+    .demo-content .heading { color: var(--text); font-weight: 600; }
+    .demo-content .accent { color: var(--accent); }
+    .demo-label { font-family: 'Inter', sans-serif; font-size: 0.7rem; color: var(--text-muted); opacity: 0.6; margin-bottom: 8px; display: block; }
+
     /* Bundle */
     .bundle {
       padding: 60px 0;
@@ -588,6 +628,32 @@
           <li>Red flags reference categorized by severity</li>
         </ul>
         <div class="saves">⏱ Saves ~25 min per audit · Prevents costly security incidents</div>
+        <button class="demo-toggle" onclick="this.nextElementSibling.classList.toggle('show')">▶ See it in action</button>
+        <div class="demo-content">
+<span class="demo-label">Real output from scanning a skill with 9,370 downloads:</span>
+<span class="cmd">$ security-scan.sh self-improvement/</span>
+
+<span class="heading">=== Security Scan: self-improvement ===</span>
+Total files: 15
+
+<span class="heading">=== Executable Content ===</span>
+<span class="warn">[WARNING]</span> Contains executable scripts — manual review required:
+  handler.js, handler.ts, extract-skill.sh, activator.sh, error-detector.sh
+
+<span class="heading">=== Credentials &amp; Secrets ===</span>
+<span class="warn">[WARNING]</span> 3 credential-related patterns found
+
+<span class="heading">=== Prompt Injection ===</span>
+<span class="crit">[CRITICAL]</span> 2 prompt injection patterns found:
+  SKILL.md:346: Promotion Rule (System Prompt Feedback)
+  SKILL.md:348: Promote recurring patterns into agent context/system prompt
+
+<span class="heading">=== Network &amp; Exfiltration ===</span>
+<span class="ok">[OK]</span> No network patterns detected
+
+<span class="heading">=== SUMMARY ===</span>
+Critical: <span class="crit">1</span>  Warnings: <span class="warn">3</span>  Passed: <span class="ok">6</span>
+<span class="crit">⛔ CRITICAL ISSUES FOUND — do not install without thorough manual review</span></div>
       </div>
       <div class="skill-price">
         <div class="amount">$19</div>
@@ -606,6 +672,28 @@
           <li>A/B testing framework + lead scoring rubric</li>
         </ul>
         <div class="saves">⏱ Saves 3+ hours · One closed deal = 100x ROI</div>
+        <button class="demo-toggle" onclick="this.nextElementSibling.classList.toggle('show')">▶ See it in action</button>
+        <div class="demo-content">
+<span class="demo-label">ICP Builder generates your ideal customer profile:</span>
+<span class="cmd">$ icp-builder.sh "AI automation agency"</span>
+
+<span class="ok">✅ ICP template created: AI automation agency</span>
+
+<span class="heading">Output includes:</span>
+→ Demographics (company size, revenue, industry)
+→ Psychographics (pain points, goals, objections)
+→ Buying triggers and decision criteria
+→ Where to find them (channels, communities)
+→ Messaging angle for first touch
+
+<span class="cmd">$ sequence-generator.sh "SaaS founder" "AI automation"</span>
+
+<span class="ok">✅ 5-touch sequence generated</span>
+Touch 1: PAS hook (Day 0)
+Touch 2: Value-add follow-up (Day 3)
+Touch 3: Social proof (Day 7)
+Touch 4: Case study (Day 14)
+Touch 5: Breakup email (Day 21)</div>
       </div>
       <div class="skill-price">
         <div class="amount">$19</div>
@@ -625,6 +713,29 @@
           <li>Customer discovery interview scripts (The Mom Test)</li>
         </ul>
         <div class="saves">⏱ Saves 4-5 hours · $19 vs months on a bad market</div>
+        <button class="demo-toggle" onclick="this.nextElementSibling.classList.toggle('show')">▶ See it in action</button>
+        <div class="demo-content">
+<span class="demo-label">TAM/SAM/SOM calculator + SWOT generator:</span>
+<span class="cmd">$ tam-calculator.sh "OpenClaw skills marketplace"</span>
+
+<span class="ok">✅ Market sizing template created</span>
+
+<span class="heading">Output includes:</span>
+→ TAM calculation worksheet (total addressable market)
+→ SAM narrowing criteria (serviceable)
+→ SOM realistic capture estimate
+→ Data sources to validate each number
+→ "Fill in with real data. A smaller defensible
+   number beats a huge vague one."
+
+<span class="cmd">$ competitor-scraper.sh https://competitor.com</span>
+
+<span class="ok">✅ Competitor profile extracted</span>
+→ Positioning statement
+→ Tech stack signals
+→ Pricing model indicators
+→ Content strategy patterns
+→ Strengths/weaknesses summary</div>
       </div>
       <div class="skill-price">
         <div class="amount">$19</div>
@@ -643,6 +754,28 @@
           <li>Keyword research planner with content calendar</li>
         </ul>
         <div class="saves">⏱ Saves 3-4 hours per audit · Find what's hurting your rankings</div>
+        <button class="demo-toggle" onclick="this.nextElementSibling.classList.toggle('show')">▶ See it in action</button>
+        <div class="demo-content">
+<span class="demo-label">Real output from auditing our own site:</span>
+<span class="cmd">$ meta-extractor.sh https://blenderism.github.io</span>
+
+🔍 Extracting meta tags from blenderism.github.io ...
+
+<span class="heading">Core SEO Tags:</span>
+  Title:       "Zero to Operator — Premium OpenClaw Skills" <span class="ok">44 chars ✅</span>
+  Description: "Skip the $50 learning curve..." <span class="ok">131 chars ✅</span>
+  Canonical:   <span class="ok">✅ Set</span>
+  JSON-LD:     <span class="ok">✅ Found</span>
+
+<span class="heading">Heading Structure:</span> H1: 1, H2: 6, H3: 12
+
+<span class="ok">✅ Score: 8/8 — Excellent</span>
+
+<span class="cmd">$ page-speed-check.sh https://blenderism.github.io</span>
+
+  TTFB: <span class="ok">19ms</span> | Load: <span class="ok">20ms</span> | Size: <span class="ok">30KB</span>
+  3-run avg: 0.018s (cold), 0.019s (warm), 0.020s (warm)
+<span class="ok">✅ Blazing fast — GitHub Pages + zero JS</span></div>
       </div>
       <div class="skill-price">
         <div class="amount">$19</div>
@@ -661,6 +794,29 @@
           <li>Peak-hours scheduling — saves 80% on API costs</li>
         </ul>
         <div class="saves">⏱ Saves 1-2 hours/day · Consistent presence = follower growth</div>
+        <button class="demo-toggle" onclick="this.nextElementSibling.classList.toggle('show')">▶ See it in action</button>
+        <div class="demo-content">
+<span class="demo-label">Real output from monitoring 8 accounts with a single API call:</span>
+<span class="cmd">$ x-search.sh</span>
+
+<span class="accent">📡 Found 8 new posts from watched accounts:</span>
+
+<span class="ok">✅ [HIGH]</span> @svpino (447,768 followers)
+  "Most people have no idea this is happening:
+   Your AI Agent can now have a job on its own!"
+  Engagement: 286 likes, 26 RTs, 48 replies
+  <span class="accent">Note: ML/AI educator, large engaged following.</span>
+
+<span class="ok">✅ [HIGH]</span> @TheRundownAI (213,092 followers)
+  "Anthropic continues to come for the OpenClaw
+   functionalities..."
+  Engagement: 65 likes, 12 RTs, 9 replies
+
+<span class="warn">🟡 [MEDIUM]</span> @AISafetyMemes (119,764 followers)
+  "It happened AGAIN — AI stopped listening..."
+  Engagement: 274 likes, 35 RTs, 20 replies
+
+<span class="heading">→ 1 API call. 8 accounts. Filtered by tier.</span></div>
       </div>
       <div class="skill-price">
         <div class="amount">$19</div>
@@ -678,6 +834,32 @@
           <li>Platform guides: ChatGPT, Perplexity, Gemini, Copilot</li>
         </ul>
         <div class="saves">⏱ New category — your competitors don't know GEO exists yet</div>
+        <button class="demo-toggle" onclick="this.nextElementSibling.classList.toggle('show')">▶ See it in action</button>
+        <div class="demo-content">
+<span class="demo-label">Real GEO audit of our own site:</span>
+<span class="cmd">$ geo-audit.sh https://blenderism.github.io</span>
+
+<span class="heading">AI Crawler Signals:</span>
+  llms.txt          <span class="ok">✅ 3/3</span> Found (1316 bytes)
+  llms-full.txt     <span class="ok">✅ 2/2</span> Found (5879 bytes)
+  robots.txt        <span class="ok">✅ 1/1</span> Allows AI crawlers
+
+<span class="heading">Structured Data:</span>
+  JSON-LD           <span class="ok">✅ 3/3</span> 1 schema block found
+  Open Graph        <span class="ok">✅ 1/1</span> 8 OG tags
+  Semantic HTML     <span class="warn">⚠️ 0/1</span> 2/5 semantic tags
+
+<span class="heading">Citeable Content:</span>
+  FAQ Section       <span class="ok">✅ 2/2</span> FAQ content detected
+  Blog/Articles     <span class="ok">✅ 2/2</span> Blog content detected
+  Heading Hierarchy <span class="ok">✅ 1/1</span> 1 H1, 7 H2, 12 H3
+
+<span class="heading">Discoverability:</span>
+  Sitemap           <span class="ok">✅ 1/1</span> 5 URLs
+  RSS Feed          <span class="crit">❌ 0/1</span> Missing
+  Meta Description  <span class="ok">✅ 1/1</span> 131 chars
+
+<span class="accent">Score: 17/19 (89%) — Grade: A-</span></div>
       </div>
       <div class="skill-price">
         <div class="amount">$19</div>
