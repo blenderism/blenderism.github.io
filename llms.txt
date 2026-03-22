@@ -1,0 +1,23 @@
+# Zero to Operator — Premium OpenClaw Skills
+
+> Skip the expensive OpenClaw learning curve. 12 automation scripts, 5 premium skills, security scanner included.
+
+## What We Do
+We build premium skills (plugins) for OpenClaw, the open-source AI agent platform. Our tools automate security auditing, cold outreach, market research, SEO audits, and X/Twitter monitoring.
+
+## Key Findings
+We audited the top 10 most downloaded OpenClaw skills and found critical security issues in 3 of them — including base64-encoded outbound URLs and data routing to third-party servers.
+
+## Products
+- Skill Audit Pro ($19) — Automated 8-check security scanner for OpenClaw skills
+- Cold Outreach Pro ($19) — Hormozi-framework outreach system with ICP builder and 12 templates
+- Market Research Pro ($19) — TAM calculator, competitor scraper, SWOT generator, pricing frameworks
+- SEO Audit Pro ($19) — 70-point site audit, meta extractor, page speed checker
+- X Monitor Pro ($19) — Automated account monitoring, tiered filtering, reply drafting
+- Business Starter Bundle ($59) — All 5 skills, 12 scripts, save $36
+
+## Links
+- Website: https://blenderism.github.io
+- Free tool: https://blenderism.github.io/skill-audit-pro-free.tar.gz
+- X/Twitter: https://x.com/4cryptoclearly
+- Detailed info: https://blenderism.github.io/llms-full.txt

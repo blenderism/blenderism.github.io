@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenClaw Day 1: What I Wish I Knew (Would've Saved $50 and 12 Hours)</title>
+  <meta name="description" content="A complete guide to setting up OpenClaw the right way. What to install, what to skip, how to avoid burning $50+ in Claude tokens on your first day.">
+  <link rel="canonical" href="https://blenderism.github.io/blog/openclaw-first-day-setup.html">
+  <meta property="og:title" content="OpenClaw Day 1: What I Wish I Knew">
+  <meta property="og:description" content="Would've saved $50 in tokens and 12 hours. Here's the setup guide I wish existed.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://blenderism.github.io/blog/openclaw-first-day-setup.html">
+  <meta property="og:image" content="https://blenderism.github.io/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@4cryptoclearly">
+  <meta name="twitter:image" content="https://blenderism.github.io/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --bg: #0a0a0b; --surface: #141416; --border: #2a2a2e; --text: #e4e4e7; --text-muted: #a1a1aa; --accent: #3b82f6; --green: #22c55e; --red: #ef4444; --orange: #f59e0b; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    nav { padding: 20px 0; border-bottom: 1px solid var(--border); }
+    nav .container { display: flex; justify-content: space-between; align-items: center; max-width: 720px; }
+    .logo { font-weight: 800; font-size: 1.2rem; text-decoration: none; color: var(--text); }
+    .logo span { color: var(--accent); }
+    nav a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+    nav a:hover { color: var(--text); }
+    article { padding: 60px 0; }
+    article h1 { font-size: 2.2rem; font-weight: 800; line-height: 1.2; letter-spacing: -1px; margin-bottom: 16px; }
+    .meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 40px; }
+    article h2 { font-size: 1.4rem; font-weight: 700; margin: 40px 0 16px; }
+    article h3 { font-size: 1.15rem; font-weight: 600; margin: 28px 0 12px; }
+    article p { color: var(--text-muted); margin-bottom: 16px; }
+    article strong { color: var(--text); }
+    article a { color: var(--accent); text-decoration: none; }
+    article a:hover { text-decoration: underline; }
+    article ul, article ol { color: var(--text-muted); margin: 0 0 16px 24px; }
+    article li { margin-bottom: 6px; }
+    .callout { background: var(--surface); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 24px 0; }
+    .callout.warn { border-left-color: var(--orange); }
+    .callout.tip { border-left-color: var(--green); }
+    .callout p { margin: 0; }
+    code { background: var(--surface); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; color: var(--orange); }
+    pre { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; overflow-x: auto; margin: 16px 0; }
+    pre code { background: none; padding: 0; color: var(--text-muted); }
+    .step { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 20px 0; }
+    .step-num { display: inline-block; background: var(--accent); color: #fff; width: 28px; height: 28px; border-radius: 50%; text-align: center; line-height: 28px; font-size: 0.85rem; font-weight: 700; margin-right: 8px; }
+    .step h3 { display: inline; margin: 0; }
+    .step p { margin-top: 12px; }
+    .cost-table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+    .cost-table th, .cost-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    .cost-table th { color: var(--text); font-weight: 600; }
+    .cost-table td { color: var(--text-muted); }
+    .cta-box { background: var(--surface); border: 2px solid var(--accent); border-radius: 12px; padding: 32px; text-align: center; margin: 40px 0; }
+    .cta-box h3 { margin: 0 0 8px; }
+    .cta-box p { margin-bottom: 16px; }
+    .cta-box a.btn { display: inline-block; background: var(--accent); color: #fff; padding: 12px 24px; border-radius: 8px; font-weight: 600; text-decoration: none; }
+    .cta-box a.btn:hover { transform: translateY(-1px); }
+    footer { padding: 40px 0; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="/" class="logo">Zero<span>to</span>Operator</a>
+    <a href="/">← Back to store</a>
+  </div>
+</nav>
+
+<article>
+  <div class="container">
+    <h1>OpenClaw Day 1: What I Wish I Knew</h1>
+    <div class="meta">March 22, 2026 · 10 min read · By <a href="https://x.com/4cryptoclearly">@4cryptoclearly</a></div>
+
+    <p>I set up OpenClaw yesterday. By the end of the day, I'd spent <strong>$50+ in Claude tokens</strong> and about <strong>12 hours</strong> getting everything working.</p>
+
+    <p>Most of that was avoidable. Here's the guide I wish someone had written.</p>
+
+    <h2>The Actual Costs</h2>
+
+    <p>Nobody tells you this upfront, so here's what Day 1 actually costs:</p>
+
+    <table class="cost-table">
+      <tr><th>What</th><th>Cost</th><th>Notes</th></tr>
+      <tr><td>VPS hosting</td><td>$5-15/mo</td><td>Hostinger, DigitalOcean, etc.</td></tr>
+      <tr><td>Claude API tokens</td><td>$50+ on Day 1</td><td>Opus is expensive. Most goes to experimentation.</td></tr>
+      <tr><td>Domain (optional)</td><td>$10/yr</td><td>Skip this on Day 1</td></tr>
+      <tr><td>X API (optional)</td><td>$100/mo</td><td>Only if you want Twitter automation</td></tr>
+    </table>
+
+    <div class="callout warn">
+      <p><strong>The hidden cost:</strong> Claude Opus ($15/M input, $75/M output) burns through credits fast when you're iterating. Every time you say "try again" or "that's not quite right," you're spending money. Be specific in your prompts.</p>
+    </div>
+
+    <h2>The Right Order to Set Things Up</h2>
+
+    <p>I did this wrong and wasted hours. Here's the order that actually makes sense:</p>
+
+    <div class="step">
+      <span class="step-num">1</span>
+      <h3>Configure your identity files first</h3>
+      <p>Before installing any skills or building anything, set up <code>SOUL.md</code>, <code>USER.md</code>, and <code>AGENTS.md</code>. These control how your agent behaves. Without them, your agent is generic — and generic agents waste tokens giving you things you don't want.</p>
+      <p>Spend 15 minutes on <code>SOUL.md</code>. Tell your agent to be concise. Set boundaries. Define your communication style. This saves hours of "no, I meant..." back-and-forth later.</p>
+    </div>
+
+    <div class="step">
+      <span class="step-num">2</span>
+      <h3>Set up memory before you forget</h3>
+      <p>Create <code>memory/</code> directory and <code>MEMORY.md</code>. Your agent wakes up fresh every session. Without memory files, it forgets everything — your preferences, your projects, your API keys' locations. You'll repeat yourself constantly.</p>
+    </div>
+
+    <div class="step">
+      <span class="step-num">3</span>
+      <h3>Connect your messaging (Telegram recommended)</h3>
+      <p>OpenClaw is 10x more useful when you can talk to it from your phone. Telegram is the easiest — create a bot via @BotFather, add the token to your config. Takes 5 minutes.</p>
+    </div>
+
+    <div class="step">
+      <span class="step-num">4</span>
+      <h3>Audit skills BEFORE installing them</h3>
+      <p>This is the mistake everyone makes. The ClawHub registry has hundreds of skills. Most are fine. <a href="/blog/openclaw-skills-security-audit.html">Some are not</a>. We found critical security issues in 3 of the top 10 most downloaded skills.</p>
+      <p>Always install to a temp directory first:</p>
+<pre><code>mkdir -p /tmp/skill-audit
+clawhub install skill-name --dir /tmp/skill-audit/
+# Review it, THEN move to workspace</code></pre>
+    </div>
+
+    <div class="step">
+      <span class="step-num">5</span>
+      <h3>Use model tiering to save money</h3>
+      <p>Don't run everything on Opus. Most tasks don't need it:</p>
+      <ul>
+        <li><strong>Opus</strong> — complex reasoning, strategy, creative work</li>
+        <li><strong>Sonnet</strong> — daily tasks, summaries, drafting (5x cheaper)</li>
+        <li><strong>Haiku</strong> — running scripts, simple automation (19x cheaper)</li>
+      </ul>
+      <p>Set up cron jobs on cheaper models. Keep Opus for your main interactive sessions. This alone can cut costs 80-90%.</p>
+    </div>
+
+    <div class="step">
+      <span class="step-num">6</span>
+      <h3>Set up cron jobs early</h3>
+      <p>OpenClaw cron jobs let your agent do things on a schedule — check emails, monitor mentions, run daily reports. Set up a daily self-eval cron on Day 1. Your agent will review what happened and log it, building useful memory over time.</p>
+<pre><code>openclaw cron add --name "Daily Review" \
+  --cron "0 4 * * *" --tz "America/Chicago" \
+  --model anthropic/claude-sonnet-4-6 \
+  --session isolated \
+  --message "Review today's work and log to memory"</code></pre>
+    </div>
+
+    <h2>Skills Worth Installing</h2>
+
+    <p>After auditing dozens of skills, here's what's actually useful on Day 1:</p>
+
+    <h3>Free skills (from ClawHub)</h3>
+    <ul>
+      <li><strong>web / web-scraping</strong> — lets your agent browse and extract content</li>
+      <li><strong>market-research</strong> — basic research frameworks</li>
+      <li><strong>copywriter</strong> — writing templates and styles</li>
+      <li><strong>seo</strong> — basic SEO knowledge</li>
+    </ul>
+
+    <h3>Skills to skip</h3>
+    <ul>
+      <li>Anything that requires <code>curl | sh</code> to install</li>
+      <li>Skills that auto-fetch API tokens from third-party services</li>
+      <li>Skills that are just marketing wrappers pointing to external repos</li>
+      <li>Anything VirusTotal flags (yes, we checked)</li>
+    </ul>
+
+    <h2>The Biggest Token Waste</h2>
+
+    <p>Here's what burned most of my $50:</p>
+
+    <ol>
+      <li><strong>Iterating on outreach templates</strong> ($8-10) — asking Claude to write cold emails, then "make it shorter," "more casual," "add urgency." A framework with templates eliminates this.</li>
+      <li><strong>Building research processes from scratch</strong> ($10-12) — "research this market" produces generic paragraphs. You need structured frameworks (TAM calculators, scoring rubrics) that you define once.</li>
+      <li><strong>SEO auditing back-and-forth</strong> ($8-10) — "check my site for SEO issues" → generic advice → "be more specific" → slightly less generic advice. A 70-point checklist with scripts eliminates this entirely.</li>
+      <li><strong>Trial and error with skills</strong> ($5-8) — installing, testing, uninstalling, trying another one. Audit first, install once.</li>
+      <li><strong>Prompt engineering for automation</strong> ($10-15) — building monitoring scripts, tweet schedulers, pipeline trackers from scratch through conversation.</li>
+    </ol>
+
+    <div class="callout tip">
+      <p><strong>The pattern:</strong> Every dollar wasted was spent asking Claude to build something that should have been a pre-built tool. Frameworks beat improvisation every time.</p>
+    </div>
+
+    <h2>What I'd Do Differently</h2>
+
+    <p>If I started over tomorrow:</p>
+
+    <ol>
+      <li>Set up identity files and memory first (15 min)</li>
+      <li>Connect Telegram (5 min)</li>
+      <li>Install a security scanner before touching any skills (2 min)</li>
+      <li>Set model tiering from the start — Sonnet for crons, Haiku for scripts (5 min)</li>
+      <li>Install pre-built business tools instead of asking Claude to build them (10 min)</li>
+      <li>Set up daily cron for memory and logging (2 min)</li>
+    </ol>
+
+    <p><strong>Total setup time: ~40 minutes. Total token cost: ~$5.</strong></p>
+
+    <p>Instead of 12 hours and $50+.</p>
+
+    <div class="cta-box">
+      <h3>Skip the expensive learning curve</h3>
+      <p>We packaged everything into a bundle. 12 automation scripts, 5 premium skills, security scanner included. Deploy in 30 minutes.</p>
+      <a href="/#bundle" class="btn">Get the Bundle — $59</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="container">
+    <p>Built by <a href="https://x.com/4cryptoclearly">@4cryptoclearly</a> · <a href="/">Zero to Operator</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

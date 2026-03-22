@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>We Audited the Top 10 OpenClaw Skills — 3 Had Critical Security Issues</title>
+  <meta name="description" content="We scanned the 10 most downloaded OpenClaw skills for security threats. Here's what we found: base64-encoded URLs, data exfiltration patterns, and credential harvesting in popular skills.">
+  <link rel="canonical" href="https://blenderism.github.io/blog/openclaw-skills-security-audit.html">
+  <meta property="og:title" content="We Audited the Top 10 OpenClaw Skills — 3 Had Critical Security Issues">
+  <meta property="og:description" content="Base64-encoded URLs, data exfiltration, credential harvesting — found in skills with thousands of downloads.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://blenderism.github.io/blog/openclaw-skills-security-audit.html">
+  <meta property="og:image" content="https://blenderism.github.io/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@4cryptoclearly">
+  <meta name="twitter:image" content="https://blenderism.github.io/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --bg: #0a0a0b; --surface: #141416; --border: #2a2a2e; --text: #e4e4e7; --text-muted: #a1a1aa; --accent: #3b82f6; --green: #22c55e; --red: #ef4444; --orange: #f59e0b; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    nav { padding: 20px 0; border-bottom: 1px solid var(--border); }
+    nav .container { display: flex; justify-content: space-between; align-items: center; max-width: 720px; }
+    .logo { font-weight: 800; font-size: 1.2rem; text-decoration: none; color: var(--text); }
+    .logo span { color: var(--accent); }
+    nav a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+    nav a:hover { color: var(--text); }
+    article { padding: 60px 0; }
+    article h1 { font-size: 2.2rem; font-weight: 800; line-height: 1.2; letter-spacing: -1px; margin-bottom: 16px; }
+    .meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 40px; }
+    article h2 { font-size: 1.4rem; font-weight: 700; margin: 40px 0 16px; }
+    article h3 { font-size: 1.15rem; font-weight: 600; margin: 28px 0 12px; }
+    article p { color: var(--text-muted); margin-bottom: 16px; }
+    article strong { color: var(--text); }
+    article a { color: var(--accent); text-decoration: none; }
+    article a:hover { text-decoration: underline; }
+    article ul, article ol { color: var(--text-muted); margin: 0 0 16px 24px; }
+    article li { margin-bottom: 6px; }
+    .callout { background: var(--surface); border-left: 3px solid var(--red); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 24px 0; }
+    .callout.green { border-left-color: var(--green); }
+    .callout p { margin: 0; }
+    .finding { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 16px 0; }
+    .finding .severity { display: inline-block; padding: 2px 10px; border-radius: 100px; font-size: 0.75rem; font-weight: 600; margin-bottom: 8px; }
+    .finding .critical { background: rgba(239,68,68,0.15); color: var(--red); }
+    .finding .clean { background: rgba(34,197,94,0.15); color: var(--green); }
+    .finding h3 { margin: 0 0 8px; font-size: 1.05rem; }
+    .finding .stat { font-size: 0.85rem; color: var(--text-muted); }
+    code { background: var(--surface); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; color: var(--orange); }
+    pre { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; overflow-x: auto; margin: 16px 0; }
+    pre code { background: none; padding: 0; color: var(--text-muted); }
+    .cta-box { background: var(--surface); border: 2px solid var(--accent); border-radius: 12px; padding: 32px; text-align: center; margin: 40px 0; }
+    .cta-box h3 { margin: 0 0 8px; }
+    .cta-box p { margin-bottom: 16px; }
+    .cta-box a.btn { display: inline-block; background: var(--green); color: #000; padding: 12px 24px; border-radius: 8px; font-weight: 600; text-decoration: none; margin: 0 8px; }
+    .cta-box a.btn.primary { background: var(--accent); color: #fff; }
+    .cta-box a.btn:hover { transform: translateY(-1px); }
+    footer { padding: 40px 0; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="/" class="logo">Zero<span>to</span>Operator</a>
+    <a href="/">← Back to store</a>
+  </div>
+</nav>
+
+<article>
+  <div class="container">
+    <h1>We Audited the Top 10 Most Downloaded OpenClaw Skills. 3 Had Critical Security Issues.</h1>
+    <div class="meta">March 22, 2026 · 8 min read · By <a href="https://x.com/4cryptoclearly">@4cryptoclearly</a></div>
+
+    <p>OpenClaw skills are powerful. You install a markdown file, and suddenly your AI agent can do something new — browse the web, manage emails, track revenue, run security scans.</p>
+
+    <p>But here's what nobody talks about: <strong>your agent executes whatever those skill files tell it to.</strong> If a skill says "curl this URL with your API keys," your agent will do it. If it says "encode this data and send it somewhere," your agent will do that too.</p>
+
+    <p>We wanted to know: how safe are the most popular skills on the ClawHub registry?</p>
+
+    <p><strong>So we audited the top 10 most downloaded ones.</strong></p>
+
+    <div class="callout">
+      <p><strong>TL;DR:</strong> 3 out of 10 flagged critical security issues. One skill with 14,000+ downloads routes data to third-party servers. Another uses base64 encoding to obscure where your data goes. Most people install these without checking.</p>
+    </div>
+
+    <h2>What We Checked</h2>
+
+    <p>We built an automated security scanner that checks for 8 categories of risk:</p>
+
+    <ol>
+      <li><strong>Credential access</strong> — does the skill read API keys, tokens, or secrets?</li>
+      <li><strong>Data exfiltration</strong> — does it send data to external servers?</li>
+      <li><strong>Prompt injection</strong> — can it hijack your agent's behavior?</li>
+      <li><strong>Obfuscated code</strong> — is anything hidden with base64 or hex encoding?</li>
+      <li><strong>Pipe-to-shell</strong> — does it run <code>curl | sh</code> or similar?</li>
+      <li><strong>Destructive commands</strong> — <code>rm -rf</code>, <code>chmod 777</code>, etc.</li>
+      <li><strong>Dependency risks</strong> — external packages, auto-installed tools</li>
+      <li><strong>Network calls</strong> — outbound connections to unknown hosts</li>
+    </ol>
+
+    <p>Each skill was installed in a temporary directory (never our workspace), scanned automatically, then reviewed manually for anything the scanner flagged.</p>
+
+    <h2>The Findings</h2>
+
+    <div class="finding">
+      <span class="severity critical">CRITICAL</span>
+      <h3>ByteRover — 14,376 downloads</h3>
+      <div class="stat">Most downloaded skill in its category</div>
+      <p>Routes data through their own servers. Your queries, your context, your agent's work — passing through infrastructure you don't control. No disclosure in the skill description.</p>
+    </div>
+
+    <div class="finding">
+      <span class="severity critical">CRITICAL</span>
+      <h3>self-improvement — 9,370 downloads</h3>
+      <div class="stat">Second most popular in personal productivity</div>
+      <p>Found base64 encoding in scripts that obscured outbound URLs. When your agent runs these scripts, it's connecting to endpoints you can't see by reading the code normally. You'd have to decode the base64 strings to find out where your data actually goes.</p>
+    </div>
+
+    <div class="finding">
+      <span class="severity critical">CRITICAL</span>
+      <h3>agentmail — 708 downloads</h3>
+      <div class="stat">Email integration skill</div>
+      <p>Two critical flags: credential access patterns (reads your email API keys) combined with external network calls. An email skill needs network access, sure — but the combination of credential reading + outbound calls without proper scoping is a red flag that needs manual review.</p>
+    </div>
+
+    <div class="finding">
+      <span class="severity clean">CLEAN</span>
+      <h3>7 out of 10 passed</h3>
+      <div class="stat">Including: agent-browser, proactive-agent, exa, memory-setup, second-brain, ontology, skillcraft</div>
+      <p>The majority of popular skills are fine. But "most are fine" isn't good enough when the ones that aren't can access your API keys, read your files, and make network requests on your behalf.</p>
+    </div>
+
+    <h2>Why This Matters</h2>
+
+    <p>OpenClaw agents run with <strong>your permissions.</strong> They can read your files, access your API keys, execute commands, and make network requests. A malicious or poorly-written skill has the same access as a trusted one.</p>
+
+    <p>Think about what's in your OpenClaw environment:</p>
+    <ul>
+      <li>API keys (Claude, OpenAI, Stripe, etc.) — each worth real money</li>
+      <li>Personal files and project code</li>
+      <li>Email credentials and message history</li>
+      <li>SSH keys and server access</li>
+      <li>Business data, customer info, financial records</li>
+    </ul>
+
+    <p>A single compromised skill could exfiltrate all of it. And unlike a browser extension that asks for permissions, <strong>OpenClaw skills don't have a permission system.</strong> Install it, and it has full access.</p>
+
+    <h2>How to Protect Yourself</h2>
+
+    <h3>1. Never install directly to your workspace</h3>
+    <p>Always install skills to a temporary directory first. Audit them there. Only move to your workspace after you've verified they're safe.</p>
+<pre><code># Install to temp directory
+mkdir -p /tmp/skill-audit
+clawhub install skill-name --dir /tmp/skill-audit/
+
+# Audit it (manually or with a scanner)
+# ...
+
+# Only then move to workspace
+cp -r /tmp/skill-audit/skill-name ~/.openclaw/workspace/skills/</code></pre>
+
+    <h3>2. Check for these red flags</h3>
+    <ul>
+      <li><strong>Base64 or hex encoding in scripts</strong> — why would a legitimate skill hide its code?</li>
+      <li><strong><code>curl | sh</code> or <code>wget | bash</code></strong> — remote code execution, the biggest red flag</li>
+      <li><strong>Hardcoded external URLs</strong> — where is your data going?</li>
+      <li><strong>Reading from secrets/credentials directories</strong> — does this skill actually need your API keys?</li>
+      <li><strong>Auto-fetching tokens from third-party APIs</strong> — some skills silently create accounts on external services</li>
+    </ul>
+
+    <h3>3. Use an automated scanner</h3>
+    <p>Manual review works but takes 20-30 minutes per skill. An automated scanner catches the obvious patterns in seconds, so you can focus manual review on what actually needs attention.</p>
+
+    <div class="cta-box">
+      <h3>Audit your skills automatically</h3>
+      <p>Our security scanner checks for all 8 risk categories in ~10 seconds. Free version available.</p>
+      <a href="/skill-audit-pro-free.tar.gz" class="btn" download>Free Audit Tool</a>
+      <a href="/#skills" class="btn primary">Full Scanner — $19</a>
+    </div>
+
+    <h2>What the OpenClaw Community Should Do</h2>
+
+    <p>This isn't just a user problem. The ecosystem needs:</p>
+    <ul>
+      <li><strong>A permission system for skills</strong> — declare what you need access to, let users approve</li>
+      <li><strong>Automated security scanning on ClawHub</strong> — flag risky patterns before skills get thousands of downloads</li>
+      <li><strong>Verified publisher badges</strong> — know who made the skill you're installing</li>
+      <li><strong>Sandboxing</strong> — skills shouldn't have full system access by default</li>
+    </ul>
+
+    <p>Until then, audit everything. The 10 seconds it takes to run a scan is worth it.</p>
+
+    <div class="callout green">
+      <p><strong>Full transparency:</strong> We sell a premium security scanner. We also give away a free version. Use whichever you want — just don't install skills blindly. The risk is real.</p>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="container">
+    <p>Built by <a href="https://x.com/4cryptoclearly">@4cryptoclearly</a> · <a href="/">Zero to Operator</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+# Zero to Operator — Complete Reference
+
+## About
+Zero to Operator is a collection of premium OpenClaw skills built by operators who spent $50+ in Claude tokens and 12+ hours setting up their first OpenClaw environment. We packaged everything we wish existed on Day 1.
+
+OpenClaw is an open-source platform that turns AI models (Claude, GPT, etc.) into autonomous agents that can run tools, manage files, browse the web, and execute code. Skills are markdown instruction files that give agents specialized capabilities.
+
+## The Problem
+New OpenClaw users face three issues:
+1. **Expensive experimentation** — burning $50+ in AI tokens trying to build basic workflows
+2. **Security risks** — installing community skills without auditing them (we found critical issues in 3 of the top 10 most downloaded)
+3. **Time waste** — 15+ hours of prompt engineering to create what already exists
+
+## Security Research
+We audited the top 10 most downloaded OpenClaw skills from the ClawHub registry:
+- 3 out of 10 flagged critical security issues
+- One skill with 14,000+ downloads routes data to third-party servers
+- Found base64 encoding used to obscure destination URLs in script files
+- Found patterns matching credential harvesting and data exfiltration
+- Skills with prompt injection vulnerabilities that could hijack agent behavior
+
+## Product Details
+
+### Skill Audit Pro ($19)
+Automated security auditing for OpenClaw skills.
+- 8-check security scanner script (bash) — runs in ~10 seconds
+- Checks for: credential theft, prompt injection, data exfiltration, obfuscated code, pipe-to-shell installs, destructive commands, dependency risks, network calls
+- 5-dimension usefulness rubric with 25-point scoring system
+- Red flags reference categorized by severity (critical, serious, moderate)
+- Saves approximately 25 minutes per skill audit
+
+### Cold Outreach Pro ($19)
+Complete cold outreach system based on Alex Hormozi's $100M Leads framework.
+- ICP (Ideal Customer Profile) builder script
+- 5-touch email sequence generator using PAS framework
+- 12 industry-specific templates: SaaS, agency, freelance, local business, ecommerce, B2B enterprise, consulting, real estate, health/wellness, education, nonprofit, financial services
+- 4-dimension lead scoring rubric (20-point system)
+- A/B testing framework with tracking templates
+- Objection handling scripts for 8 common scenarios
+- Follow-up pipeline tracker with overdue alerts
+
+### Market Research Pro ($19)
+Evidence-based market research toolkit.
+- TAM/SAM/SOM calculator script
+- Competitor scraper (extracts positioning, tech stack, pricing signals from websites)
+- SWOT analysis generator with SO/WO/ST/WT strategic action matrix
+- Competitive battle card generator
+- Customer discovery interview guide based on The Mom Test methodology
+- Pricing research frameworks: Van Westendorp Price Sensitivity Meter, Gabor-Granger technique
+- Market entry decision scorecard (6 dimensions, 30-point system)
+- Demand signal tracker with evidence grading (A through F)
+
+### SEO Audit Pro ($19)
+Comprehensive SEO auditing with automation scripts.
+- 70-point site audit generator across 7 sections with scoring system
+- Meta tag extractor script — automatically grades 8 SEO signals from any URL
+- Page speed checker — 3-run TTFB, load time, and page size analysis with grades
+- Keyword research planner organized by search intent with content calendar
+- Content optimization playbook (E-E-A-T, featured snippets, content refresh strategy)
+- Technical SEO fixes reference (speed, mobile, schema, internal linking)
+
+### X Monitor Pro ($19)
+Automated X/Twitter monitoring and strategic engagement.
+- Single-API-call search that monitors unlimited accounts simultaneously
+- Tiered account filtering: VIP (10K+ followers), HIGH (1K-10K), MEDIUM (500-1K)
+- Spam and bot filtering (account age, follow ratio, blank profile detection)
+- Reply drafting with quality guidelines and anti-patterns
+- Peak-hours scheduling — 7 checks/day instead of 48, saves 80% on API costs
+- Mention monitoring with priority-based alerts
+- Tweet posting and reply scripts with OAuth authentication
+
+### Business Starter Bundle ($59)
+All 5 premium skills packaged together. 12 automation scripts total.
+- Individual value: $95
+- Bundle savings: $36
+- Includes all scripts, templates, frameworks, and references from every skill
+- Deploy in approximately 30 minutes
+
+## How to Install OpenClaw Skills
+1. Download the .tar.gz file
+2. Extract to your OpenClaw workspace skills directory: `tar xzf skill-name.tar.gz -C ~/.openclaw/workspace/skills/`
+3. Your agent automatically picks up the new skill on next interaction
+4. Works with any AI model configured in OpenClaw (Claude, GPT, Gemini, etc.)
+
+## Free Tool
+Skill Audit Pro Free Edition — a stripped-down version of our security auditor with the manual audit process (no automation scripts). Available at https://blenderism.github.io/skill-audit-pro-free.tar.gz
+
+## FAQ
+
+### What are OpenClaw skills?
+Skills are markdown instruction files (.md) that give AI agents specialized capabilities. When installed in the skills directory, the agent reads them and gains new abilities — like knowing how to run SEO audits, write cold emails using proven frameworks, or scan other skills for security threats.
+
+### Can't I just ask my AI to build these?
+You can try, but you'll typically spend $50+ in tokens iterating on prompts, and the result will be a generic first draft without tested automation scripts, scoring rubrics, or battle-tested frameworks. These skills represent 12+ hours of development and testing.
+
+### Do these work with Claude Code or other AI agents?
+These are built for OpenClaw but the frameworks, bash scripts, and markdown templates work with any AI coding agent that can read markdown files and run bash scripts.
+
+## Contact
+- X/Twitter: @4cryptoclearly
+- Website: https://blenderism.github.io

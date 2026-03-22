@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Zero to Operator</title>
+  <meta name="description" content="Guides, security research, and lessons learned building with OpenClaw. By operators, for operators.">
+  <link rel="canonical" href="https://blenderism.github.io/blog/">
+  <meta property="og:title" content="Blog — Zero to Operator">
+  <meta property="og:description" content="Guides, security research, and lessons learned building with OpenClaw.">
+  <meta property="og:image" content="https://blenderism.github.io/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --bg: #0a0a0b; --surface: #141416; --border: #2a2a2e; --text: #e4e4e7; --text-muted: #a1a1aa; --accent: #3b82f6; --green: #22c55e; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    nav { padding: 20px 0; border-bottom: 1px solid var(--border); }
+    nav .container { display: flex; justify-content: space-between; align-items: center; max-width: 720px; }
+    .logo { font-weight: 800; font-size: 1.2rem; text-decoration: none; color: var(--text); }
+    .logo span { color: var(--accent); }
+    nav a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+    nav a:hover { color: var(--text); }
+    .blog-header { padding: 60px 0 40px; }
+    .blog-header h1 { font-size: 2rem; font-weight: 800; letter-spacing: -1px; }
+    .blog-header p { color: var(--text-muted); margin-top: 8px; }
+    .post-list { padding-bottom: 60px; }
+    .post-card { display: block; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 28px; margin-bottom: 16px; text-decoration: none; transition: border-color 0.2s; }
+    .post-card:hover { border-color: var(--accent); }
+    .post-card h2 { font-size: 1.2rem; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .post-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 10px; }
+    .post-card .meta { font-size: 0.8rem; color: var(--text-muted); }
+    .post-card .tag { display: inline-block; background: rgba(59,130,246,0.15); color: var(--accent); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 500; margin-right: 6px; }
+    footer { padding: 40px 0; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="/" class="logo">Zero<span>to</span>Operator</a>
+    <a href="/">← Store</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="blog-header">
+    <h1>Blog</h1>
+    <p>Guides, security research, and lessons learned building with OpenClaw.</p>
+  </div>
+
+  <div class="post-list">
+    <a href="/blog/openclaw-skills-security-audit.html" class="post-card">
+      <span class="tag">Security</span><span class="tag">Research</span>
+      <h2>We Audited the Top 10 Most Downloaded OpenClaw Skills. 3 Had Critical Security Issues.</h2>
+      <p>Base64-encoded URLs, data exfiltration patterns, credential harvesting — found in skills with thousands of downloads. Here's what we found and how to protect yourself.</p>
+      <div class="meta">March 22, 2026 · 8 min read</div>
+    </a>
+
+    <a href="/blog/openclaw-first-day-setup.html" class="post-card">
+      <span class="tag">Guide</span><span class="tag">Getting Started</span>
+      <h2>OpenClaw Day 1: What I Wish I Knew (Would've Saved $50 and 12 Hours)</h2>
+      <p>A complete guide to setting up OpenClaw the right way. The right order, the right skills, and how to avoid burning through your API credits on experimentation.</p>
+      <div class="meta">March 22, 2026 · 10 min read</div>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>Built by <a href="https://x.com/4cryptoclearly">@4cryptoclearly</a> · <a href="/">Zero to Operator</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
