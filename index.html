@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zero to Operator — Premium OpenClaw Skills</title>
+  <meta name="description" content="Skip the $50 learning curve. 12 automation scripts, 5 premium skills, security scanner included. Built by operators, for operators.">
+  <meta property="og:title" content="Zero to Operator — Premium OpenClaw Skills">
+  <meta property="og:description" content="We spent $50+ in tokens and 12 hours building the toolkit we wish existed on Day 1. Yours for $59.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Zero to Operator — Premium OpenClaw Skills">
+  <meta name="twitter:description" content="12 automation scripts. 5 premium skills. Skip the expensive learning curve.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --bg: #0a0a0b;
+      --surface: #141416;
+      --surface-2: #1c1c1f;
+      --border: #2a2a2e;
+      --text: #e4e4e7;
+      --text-muted: #a1a1aa;
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+      --green: #22c55e;
+      --orange: #f59e0b;
+      --red: #ef4444;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    nav {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(10,10,11,0.9);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+    nav .container { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-weight: 800; font-size: 1.2rem; letter-spacing: -0.5px; }
+    .logo span { color: var(--accent); }
+    nav a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    nav a:hover { color: var(--text); }
+
+    /* Hero */
+    .hero {
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .hero-badge strong { color: var(--green); }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 32px;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1.05rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .hero-cta:hover { background: var(--accent-hover); transform: translateY(-1px); }
+    .hero-sub {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Social proof */
+    .proof {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .proof-item { text-align: center; }
+    .proof-num { font-size: 1.8rem; font-weight: 800; color: var(--accent); }
+    .proof-label { font-size: 0.85rem; color: var(--text-muted); }
+
+    /* Problem */
+    .problem {
+      padding: 60px 0;
+      text-align: center;
+    }
+    .problem h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+    .problem p { color: var(--text-muted); max-width: 640px; margin: 0 auto 32px; }
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .problem-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: left;
+    }
+    .problem-card .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; font-weight: 600; }
+    .problem-card.without .label { color: var(--red); }
+    .problem-card.with .label { color: var(--green); }
+    .problem-card ul { list-style: none; }
+    .problem-card li { padding: 4px 0; font-size: 0.9rem; color: var(--text-muted); }
+    .problem-card.without li::before { content: "✗ "; color: var(--red); }
+    .problem-card.with li::before { content: "✓ "; color: var(--green); }
+
+    /* Skills */
+    .skills { padding: 60px 0; }
+    .skills h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+      letter-spacing: -0.5px;
+    }
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 20px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: start;
+    }
+    .skill-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; }
+    .skill-card .tagline { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 16px; }
+    .skill-card ul { list-style: none; }
+    .skill-card li { padding: 3px 0; font-size: 0.9rem; color: var(--text-muted); }
+    .skill-card li::before { content: "→ "; color: var(--accent); }
+    .skill-card .saves {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: var(--green);
+      font-weight: 500;
+    }
+    .skill-price {
+      text-align: center;
+      min-width: 80px;
+    }
+    .skill-price .amount { font-size: 1.5rem; font-weight: 800; }
+    .skill-price a {
+      display: block;
+      margin-top: 8px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .skill-price a:hover { border-color: var(--accent); }
+
+    /* Bundle */
+    .bundle {
+      padding: 60px 0;
+    }
+    .bundle-card {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      border: 2px solid var(--accent);
+      border-radius: 16px;
+      padding: 48px;
+      text-align: center;
+    }
+    .bundle-card .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .bundle-card h2 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.5px; }
+    .bundle-card .subtitle { color: var(--text-muted); margin-bottom: 24px; }
+    .bundle-card .pricing { margin-bottom: 24px; }
+    .bundle-card .old-price { font-size: 1.2rem; color: var(--text-muted); text-decoration: line-through; }
+    .bundle-card .new-price { font-size: 3rem; font-weight: 800; margin: 0 12px; }
+    .bundle-card .savings { font-size: 0.9rem; color: var(--green); font-weight: 600; }
+    .bundle-card .includes {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+    .bundle-card .includes span {
+      background: rgba(59,130,246,0.15);
+      border: 1px solid rgba(59,130,246,0.3);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .bundle-cta {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 16px 40px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .bundle-cta:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+    /* Security */
+    .security {
+      padding: 60px 0;
+      text-align: center;
+    }
+    .security h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.5px; }
+    .security p { color: var(--text-muted); max-width: 600px; margin: 0 auto 24px; }
+    .security .stat-row {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .security .stat {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 32px;
+    }
+    .security .stat-num { font-size: 2rem; font-weight: 800; color: var(--red); }
+    .security .stat-label { font-size: 0.85rem; color: var(--text-muted); }
+
+    /* FAQ */
+    .faq { padding: 60px 0; }
+    .faq h2 { font-size: 1.8rem; font-weight: 700; text-align: center; margin-bottom: 32px; letter-spacing: -0.5px; }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+    .faq-item h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+    .faq-item p { color: var(--text-muted); font-size: 0.95rem; }
+
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 640px) {
+      .problem-grid { grid-template-columns: 1fr; }
+      .skill-card { grid-template-columns: 1fr; }
+      .skill-price { text-align: left; display: flex; align-items: center; gap: 12px; }
+      .bundle-card { padding: 32px 20px; }
+      .proof { gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="logo">Zero<span>to</span>Operator</div>
+    <div>
+      <a href="#skills" style="margin-right: 20px;">Skills</a>
+      <a href="#bundle" style="margin-right: 20px;">Bundle</a>
+      <a href="https://x.com/4cryptoclearly">𝕏</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">Built by an operator who burned <strong>$50+ in tokens</strong> on Day 1</div>
+    <h1>Skip the expensive<br><span>OpenClaw learning curve</span></h1>
+    <p>12 automation scripts. 5 premium skills. Security scanner included. Everything we wish existed when we started.</p>
+    <a href="#bundle" class="hero-cta">Get the Bundle — $59</a>
+    <div class="hero-sub">All 5 skills individually = $95 · Save $36 with the bundle</div>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="proof-item">
+    <div class="proof-num">12</div>
+    <div class="proof-label">Automation Scripts</div>
+  </div>
+  <div class="proof-item">
+    <div class="proof-num">5</div>
+    <div class="proof-label">Premium Skills</div>
+  </div>
+  <div class="proof-item">
+    <div class="proof-num">15+</div>
+    <div class="proof-label">Hours Saved</div>
+  </div>
+  <div class="proof-item">
+    <div class="proof-num">$50+</div>
+    <div class="proof-label">Tokens Saved</div>
+  </div>
+</section>
+
+<section class="problem">
+  <div class="container">
+    <h2>Day 1 with OpenClaw is expensive</h2>
+    <p>You'll burn through tokens experimenting, install sketchy skills, and build everything from scratch. We already did that. Here's the difference:</p>
+    <div class="problem-grid">
+      <div class="problem-card without">
+        <div class="label">Without the Bundle</div>
+        <ul>
+          <li>$50+ in Claude tokens experimenting</li>
+          <li>15+ hours of prompt engineering</li>
+          <li>Install skills with zero security checks</li>
+          <li>Build outreach templates from scratch</li>
+          <li>Google "SEO checklist" and hope for the best</li>
+          <li>Manually scroll X for engagement</li>
+        </ul>
+      </div>
+      <div class="problem-card with">
+        <div class="label">With the Bundle</div>
+        <ul>
+          <li>Deploy in 30 minutes</li>
+          <li>12 tested automation scripts ready to run</li>
+          <li>8-check security scanner catches threats</li>
+          <li>Hormozi-framework outreach system</li>
+          <li>70-point SEO audit with scoring</li>
+          <li>Automated X monitoring on autopilot</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="security">
+  <div class="container">
+    <h2>We audited the top 10 most downloaded skills</h2>
+    <p>Most people install OpenClaw skills without checking them. We scanned the most popular ones. Here's what we found:</p>
+    <div class="stat-row">
+      <div class="stat">
+        <div class="stat-num">3/10</div>
+        <div class="stat-label">Flagged Critical</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">14K</div>
+        <div class="stat-label">Downloads on a skill that<br>routes data to their servers</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">base64</div>
+        <div class="stat-label">Encoding found in<br>popular skill scripts</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="skills" id="skills">
+  <div class="container">
+    <h2>5 Premium Skills</h2>
+
+    <div class="skill-card">
+      <div>
+        <h3>🔒 Skill Audit Pro</h3>
+        <div class="tagline">Stop installing malicious skills. Audit before you trust.</div>
+        <ul>
+          <li>Automated 8-check security scanner (10 seconds vs 25 min manual)</li>
+          <li>Catches credential theft, prompt injection, data exfiltration</li>
+          <li>5-dimension usefulness rubric with 25-point scoring</li>
+          <li>Red flags reference categorized by severity</li>
+        </ul>
+        <div class="saves">⏱ Saves ~25 min per audit · Prevents costly security incidents</div>
+      </div>
+      <div class="skill-price">
+        <div class="amount">$19</div>
+        <a href="STRIPE_LINK_1">Buy</a>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div>
+        <h3>📧 Cold Outreach Pro</h3>
+        <div class="tagline">Hormozi's $100M Leads framework, packaged for your AI agent.</div>
+        <ul>
+          <li>ICP builder + 5-touch sequence generator</li>
+          <li>12 industry-specific templates (SaaS, agency, freelance, local, ecom, B2B)</li>
+          <li>Pipeline tracker with overdue follow-up alerts</li>
+          <li>A/B testing framework + lead scoring rubric</li>
+        </ul>
+        <div class="saves">⏱ Saves 3+ hours · One closed deal = 100x ROI</div>
+      </div>
+      <div class="skill-price">
+        <div class="amount">$19</div>
+        <a href="STRIPE_LINK_2">Buy</a>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div>
+        <h3>📊 Market Research Pro</h3>
+        <div class="tagline">Make decisions with evidence, not vibes.</div>
+        <ul>
+          <li>TAM/SAM/SOM calculator + competitor scraper</li>
+          <li>SWOT generator with strategic action matrix</li>
+          <li>Battle card generator for competitive positioning</li>
+          <li>Pricing research (Van Westendorp + Gabor-Granger)</li>
+          <li>Customer discovery interview scripts (The Mom Test)</li>
+        </ul>
+        <div class="saves">⏱ Saves 4-5 hours · $19 vs months on a bad market</div>
+      </div>
+      <div class="skill-price">
+        <div class="amount">$19</div>
+        <a href="STRIPE_LINK_3">Buy</a>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div>
+        <h3>🔍 SEO Audit Pro</h3>
+        <div class="tagline">Real scripts that check your site, not just advice to read.</div>
+        <ul>
+          <li>70-point site audit generator with scoring system</li>
+          <li>Meta tag extractor — grades 8 SEO signals automatically</li>
+          <li>Page speed checker (3-run TTFB, load time, size)</li>
+          <li>Keyword research planner with content calendar</li>
+        </ul>
+        <div class="saves">⏱ Saves 3-4 hours per audit · Find what's hurting your rankings</div>
+      </div>
+      <div class="skill-price">
+        <div class="amount">$19</div>
+        <a href="STRIPE_LINK_4">Buy</a>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div>
+        <h3>📡 X Monitor Pro</h3>
+        <div class="tagline">Grow your X presence without burning hours scrolling.</div>
+        <ul>
+          <li>Single-API-call monitoring of unlimited accounts</li>
+          <li>Tiered filtering by follower count (VIP/HIGH/MEDIUM)</li>
+          <li>Reply drafting with quality guidelines</li>
+          <li>Peak-hours scheduling — saves 80% on API costs</li>
+        </ul>
+        <div class="saves">⏱ Saves 1-2 hours/day · Consistent presence = follower growth</div>
+      </div>
+      <div class="skill-price">
+        <div class="amount">$19</div>
+        <a href="STRIPE_LINK_5">Buy</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bundle" id="bundle">
+  <div class="container">
+    <div class="bundle-card">
+      <div class="badge">BEST VALUE</div>
+      <h2>Business Starter Bundle</h2>
+      <div class="subtitle">Everything you need to research, sell, and grow — from Day 1</div>
+      <div class="pricing">
+        <span class="old-price">$95</span>
+        <span class="new-price">$59</span>
+        <div class="savings">Save $36 — all 5 skills included</div>
+      </div>
+      <div class="includes">
+        <span>🔒 Skill Audit Pro</span>
+        <span>📧 Cold Outreach Pro</span>
+        <span>📊 Market Research Pro</span>
+        <span>🔍 SEO Audit Pro</span>
+        <span>📡 X Monitor Pro</span>
+      </div>
+      <a href="STRIPE_LINK_BUNDLE" class="bundle-cta">Get the Bundle — $59</a>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="container">
+    <h2>Questions</h2>
+    <div class="faq-item">
+      <h3>What are OpenClaw skills?</h3>
+      <p>Skills are instruction files that give your AI agent specialized capabilities — like knowing how to audit websites for SEO, write cold emails using proven frameworks, or scan other skills for security threats. Install a skill, and your agent can do something new.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can't my agent just build these?</h3>
+      <p>It can try. But you'll spend $50+ in tokens iterating, and you'll get a generic first draft — not a tested system with 12 automation scripts, scoring rubrics, and battle-tested frameworks like Hormozi's $100M Leads. We built these so you don't have to.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How do I install them?</h3>
+      <p>Download the .tar.gz file, extract it into your OpenClaw skills directory, and your agent picks them up automatically. Takes about 2 minutes per skill.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do these work with Claude Code / other agents?</h3>
+      <p>These are built for OpenClaw but the frameworks, scripts, and templates work with any AI coding agent that can read markdown files and run bash scripts.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What if they don't work for me?</h3>
+      <p>Reach out and we'll make it right. These are tools we use daily — if something's broken, we want to know.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>Built by <a href="https://x.com/4cryptoclearly">@4cryptoclearly</a> · Powered by OpenClaw</p>
+    <p style="margin-top: 8px;">We spent $50+ and 12 hours so you don't have to.</p>
+  </div>
+</footer>
+
+</body>
+</html>
