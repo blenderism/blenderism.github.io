@@ -372,6 +372,95 @@
     }
     footer a { color: var(--accent); text-decoration: none; }
 
+    /* Free tool */
+    .free-tool { padding: 60px 0; }
+    .free-card {
+      background: var(--surface);
+      border: 1px solid var(--green);
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+    }
+    .free-badge {
+      display: inline-block;
+      background: var(--green);
+      color: #000;
+      padding: 4px 14px;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .free-card h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 12px; }
+    .free-card p { color: var(--text-muted); max-width: 520px; margin: 0 auto 20px; }
+    .free-card ul { list-style: none; display: inline-block; text-align: left; margin-bottom: 24px; }
+    .free-card li { padding: 3px 0; font-size: 0.9rem; color: var(--text-muted); }
+    .free-card li::before { content: "✓ "; color: var(--green); }
+    .free-cta {
+      display: inline-block;
+      background: var(--green);
+      color: #000;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1.05rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .free-cta:hover { background: #16a34a; transform: translateY(-1px); }
+    .free-sub { margin-top: 12px; font-size: 0.8rem; color: var(--text-muted); }
+
+    /* Exit intent popup */
+    .exit-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    .exit-overlay.show { display: flex; }
+    .exit-modal {
+      background: var(--surface);
+      border: 2px solid var(--green);
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 480px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+    }
+    .exit-modal .close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .exit-modal .close:hover { color: var(--text); }
+    .exit-modal h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 12px; }
+    .exit-modal p { color: var(--text-muted); margin-bottom: 24px; font-size: 0.95rem; }
+    .exit-modal .exit-btn {
+      display: inline-block;
+      background: var(--green);
+      color: #000;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .exit-modal .exit-btn:hover { background: #16a34a; }
+    .exit-modal .exit-sub { margin-top: 16px; }
+    .exit-modal .exit-sub a { color: var(--text-muted); font-size: 0.85rem; text-decoration: none; cursor: pointer; }
+    .exit-modal .exit-sub a:hover { color: var(--text); }
+
     @media (max-width: 640px) {
       .problem-grid { grid-template-columns: 1fr; }
       .skill-card { grid-template-columns: 1fr; }
@@ -595,6 +684,23 @@
   </div>
 </section>
 
+<section class="free-tool" id="free">
+  <div class="container">
+    <div class="free-card">
+      <div class="free-badge">FREE</div>
+      <h2>Try Skill Audit Pro — Free Edition</h2>
+      <p>Not ready to buy? Grab the free version of our security auditor. Manual process, no automation scripts — but you'll see exactly how we audit skills and why it matters.</p>
+      <ul>
+        <li>Step-by-step audit checklist</li>
+        <li>Security red flags to watch for</li>
+        <li>Usefulness scoring framework</li>
+      </ul>
+      <a href="/skill-audit-pro-free.tar.gz" class="free-cta" download>Download Free Audit Tool</a>
+      <div class="free-sub">No email required · Instant download · Works with any OpenClaw setup</div>
+    </div>
+  </div>
+</section>
+
 <section class="faq">
   <div class="container">
     <h2>Questions</h2>
@@ -627,6 +733,72 @@
     <p style="margin-top: 8px;">We spent $50+ and 12 hours so you don't have to.</p>
   </div>
 </footer>
+
+<!-- Exit Intent Popup -->
+<div class="exit-overlay" id="exitPopup">
+  <div class="exit-modal">
+    <button class="close" onclick="closeExit()">&times;</button>
+    <div class="free-badge">FREE</div>
+    <h2>Wait — grab this before you go</h2>
+    <p>Download our Skill Audit Tool for free. See exactly how we audit OpenClaw skills for security threats and usefulness. No email, no catch.</p>
+    <a href="/skill-audit-pro-free.tar.gz" class="exit-btn" download onclick="closeExit()">Download Free Audit Tool</a>
+    <div class="exit-sub">
+      <a onclick="closeExit()">No thanks, I'll risk it</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Exit intent detection
+  let exitShown = false;
+
+  // Desktop: mouse leaves viewport from top
+  document.addEventListener('mouseout', function(e) {
+    if (exitShown) return;
+    if (e.clientY < 10 && e.relatedTarget === null) {
+      showExit();
+    }
+  });
+
+  // Mobile: back button / scroll to top quickly
+  let lastScroll = 0;
+  let scrollUpCount = 0;
+  window.addEventListener('scroll', function() {
+    if (exitShown) return;
+    const current = window.scrollY;
+    if (current < lastScroll && current > 400) {
+      scrollUpCount++;
+      if (scrollUpCount > 15) {
+        showExit();
+      }
+    } else {
+      scrollUpCount = 0;
+    }
+    lastScroll = current;
+  });
+
+  // Don't show if they already downloaded or bought
+  function showExit() {
+    if (sessionStorage.getItem('exitSeen')) return;
+    exitShown = true;
+    sessionStorage.setItem('exitSeen', '1');
+    document.getElementById('exitPopup').classList.add('show');
+  }
+
+  function closeExit() {
+    document.getElementById('exitPopup').classList.remove('show');
+  }
+
+  // Close on overlay click
+  document.getElementById('exitPopup').addEventListener('click', function(e) {
+    if (e.target === this) closeExit();
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeExit();
+  });
+</script>
 
 </body>
 </html>
