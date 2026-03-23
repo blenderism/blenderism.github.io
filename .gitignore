@@ -1,0 +1,12 @@
+# Never push private data to the public site
+projects/
+memory/
+artifacts/
+secrets/
+*.env
+*.key
+MEMORY.md
+SOUL.md
+USER.md
+TOOLS.md
+AGENTS.md
